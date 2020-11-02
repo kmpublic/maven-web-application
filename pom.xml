@@ -97,19 +97,15 @@
 	</dependencies>
 	
 	<distributionManagement>
-	
-	    <repository>
-	      <id>nexus</id>
-	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://3.15.37.4:8081/repository/flipkart-release/</url>
-	    </repository>
-	    
 	    <snapshotRepository>
-	      <id>nexus</id>
-	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://3.15.37.4:8081/repository/flipkart-snapshot/</url>
-	    </snapshotRepository>
-	    
+      <id>nexus</id>
+      <url>http://13.235.67.184:8081/repository/maven-standalone-application-ss/</url>
+    </snapshotRepository>
+    <repository>
+      <id>nexus</id>
+      <url>http://13.235.67.184:8081/repository/maven-standalone-application-re/</url>
+    </repository>
+    
 	</distributionManagement>
 	
 	<build>
