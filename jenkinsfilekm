@@ -6,7 +6,7 @@ node
 
 def mvnHome = tool name:"maven 3.6.3"
 
-properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([pollSCM('* * * * *')])])
+// properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([pollSCM('* * * * *')])])
 
 
 stage('CODE')
@@ -25,7 +25,7 @@ stage('SONAR')
 {
 sh "${mvnHome}/bin/mvn sonar:sonar"
 }
-
+/*
 stage('NEXUS')
 {
 sh "${mvnHome}/bin/mvn deploy"
@@ -38,7 +38,7 @@ sshagent(['43790073-9ce1-404c-8928-09a21832102f'])
 sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@15.207.100.79:/opt/apache-tomcat-9.0.39/webapps "
 }  
 }
-
+*/
 
 stage('MAIL')
 {
