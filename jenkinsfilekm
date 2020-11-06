@@ -5,11 +5,6 @@ node
 
 def mvnHome = tool name:"maven 3.6.3"
 properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5'))])
-{
-git branch: 'development', credentialsId: 'd3c0cafb-b70d-4fc5-931a-885a68e96ce3', url: 'https://github.com/kmpublic/maven-web-application.git'
-}
-   
-
 stage('BUILD')
 {
 sh "${mvnHome}/bin/mvn clean package "
