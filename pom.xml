@@ -99,11 +99,11 @@
 	<distributionManagement>
 	    <snapshotRepository>
       <id>nexus</id>
-      <url>http://65.0.139.143:8081/repository/maven-standalone-application-ss/</url>
+      <url>http://65.0.139.143:8083/repository/maven-standalone-application-ss/</url>
     </snapshotRepository>
     <repository>
       <id>nexus</id>
-      <url>http://65.0.139.143:8081/repository/maven-standalone-application-re/</url>
+      <url>http://65.0.139.143:8083/repository/maven-standalone-application-re/</url>
     </repository>
     
 	</distributionManagement>
