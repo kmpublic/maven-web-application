@@ -21,7 +21,7 @@ stage('SONAR')
 {
 sh "${mvnHome}/bin/mvn sonar:sonar"
 }
-
+/*
 stage('NEXUS')
 {
 sh "${mvnHome}/bin/mvn deploy"
@@ -42,6 +42,7 @@ mail bcc: '', body: '''I am interested in this position.
 
  PLEASE FIND ATTACHMENT RESUME''', cc: 'Prathapreddykm@gmail.com', from: '', replyTo: '', subject: 'B ok interested', to: 'kmpr92@gmail.com'
  }
+ /*
 }
 
 
