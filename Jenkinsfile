@@ -20,7 +20,7 @@ stage('BUILD')
 sh "${mvnHome}/bin/mvn clean package "
 }
 
-
+/*
 stage('SONAR')
 {
 sh "${mvnHome}/bin/mvn sonar:sonar"
@@ -30,7 +30,7 @@ stage('NEXUS')
 {
 sh "${mvnHome}/bin/mvn deploy"
 }
-/*
+
 stage('DEPLOY')
 {
 sshagent(['43790073-9ce1-404c-8928-09a21832102f']) 
