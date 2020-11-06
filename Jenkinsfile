@@ -1,54 +1,52 @@
-node ('master')
- {
-  
-  def mavenHome = tool name: "maven3.6.3"
-  
-      echo "GitHub BranhName ${env.BRANCH_NAME}"
-      echo "Jenkins Job Number ${env.BUILD_NUMBER}"
-      echo "Jenkins Node Name ${env.NODE_NAME}"
-  
-      echo "Jenkins Home ${env.JENKINS_HOME}"
-      echo "Jenkins URL ${env.JENKINS_URL}"
-      echo "JOB Name ${env.JOB_NAME}"
-  
-   properties([[$class: 'JiraProjectProperty'], buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '2', daysToKeepStr: '', numToKeepStr: '2')), pipelineTriggers([pollSCM('* * * * *')])])
-  
-  stage("CheckOutCodeGit")
-  {
-   git branch: 'development', credentialsId: '65fb834f-a83b-4fe7-8e11-686245c47a65', url: 'https://github.com/MithunTechnologiesDevOps/maven-web-application.git'
- }
- 
- stage("Build")
- {
- sh "${mavenHome}/bin/mvn clean package"
- }
- 
-  /*
- stage("ExecuteSonarQubeReport")
- {
- sh "${mavenHome}/bin/mvn sonar:sonar"
- }
- 
- stage("UploadArtifactsintoNexus")
- {
- sh "${mavenHome}/bin/mvn deploy"
- }
- 
-  stage("DeployAppTomcat")
- {
-  sshagent(['423b5b58-c0a3-42aa-af6e-f0affe1bad0c']) {
-    sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war  ec2-user@15.206.91.239:/opt/apache-tomcat-9.0.34/webapps/" 
-  }
- }
- 
- stage('EmailNotification')
- {
- mail bcc: 'devopstrainingblr@gmail.com', body: '''Build is over
 
- Thanks,
- Mithun Technologies,
- 9980923226.''', cc: 'devopstrainingblr@gmail.com', from: '', replyTo: '', subject: 'Build is over!!', to: 'devopstrainingblr@gmail.com'
+
+node 
+{
+
+
+def mvnHome = tool name:"maven 3.6.3"
+
+// properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([pollSCM('* * * * *')])])
+
+
+stage('CODE')
+{
+git branch: 'development', credentialsId: 'd3c0cafb-b70d-4fc5-931a-885a68e96ce3', url: 'https://github.com/kmpublic/maven-web-application.git'
+}
+   
+
+stage('BUILD')
+{
+sh "${mvnHome}/bin/mvn clean package "
+}
+
+
+stage('SONAR')
+{
+sh "${mvnHome}/bin/mvn sonar:sonar"
+}
+
+stage('NEXUS')
+{
+sh "${mvnHome}/bin/mvn deploy"
+}
+/*
+stage('DEPLOY')
+{
+sshagent(['43790073-9ce1-404c-8928-09a21832102f']) 
+ {
+sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@15.207.100.79:/opt/apache-tomcat-9.0.39/webapps "
+}  
+}
+*/
+
+stage('MAIL')
+{
+mail bcc: '', body: '''I am interested in this position. 
+
+ PLEASE FIND ATTACHMENT RESUME''', cc: 'Prathapreddykm@gmail.com', from: '', replyTo: '', subject: 'B ok interested', to: 'kmpr92@gmail.com'
  }
- */
  
- }
+}
+
+
