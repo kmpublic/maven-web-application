@@ -21,7 +21,7 @@ stage('SONAR')
 {
 sh "${mvnHome}/bin/mvn sonar:sonar"
 }
-
+/*
 stage('NEXUS')
 {
 sh "${mvnHome}/bin/mvn deploy"
@@ -35,7 +35,7 @@ sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@15
 }  
 }
 
-
+*/
 stage('MAIL')
 {
 mail bcc: '', body: '''I am interested in this position. 
