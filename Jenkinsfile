@@ -30,7 +30,7 @@ stage('NEXUS')
 {
 sh "${mvnHome}/bin/mvn deploy"
 }
-/*
+
 stage('DEPLOY')
 {
 sshagent(['43790073-9ce1-404c-8928-09a21832102f']) 
@@ -38,7 +38,7 @@ sshagent(['43790073-9ce1-404c-8928-09a21832102f'])
 sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@15.207.100.79:/opt/apache-tomcat-9.0.39/webapps "
 }  
 }
-*/
+
 
 stage('MAIL')
 {
